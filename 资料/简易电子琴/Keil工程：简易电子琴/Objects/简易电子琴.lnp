@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\简易电子琴" 
+PRINT(".\Listings\简易电子琴.m51")

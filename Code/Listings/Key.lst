@@ -1,10 +1,10 @@
-C251 COMPILER V5.60.0,  Key                                                                12/01/24  12:43:28  PAGE 1   
+C251 COMPILER V5.60.0,  Key                                                                12/01/24  14:13:41  PAGE 1   
 
 
 C251 COMPILER V5.60.0, COMPILATION OF MODULE Key
 OBJECT MODULE PLACED IN .\Objects\Key.obj
-COMPILER INVOKED BY: D:\WorkSoftware\Keil_C251\C251\BIN\C251.EXE Code\Key.c INTR2 BROWSE INCDIR(.\Code) DEBUG PRINT(.\Li
-                    -stings\Key.lst) TABS(2) OBJECT(.\Objects\Key.obj) 
+COMPILER INVOKED BY: D:\Software\WorkSoftware\Keil5\C251\C251\BIN\C251.EXE Code\Key.c INTR2 BROWSE INCDIR(.\Code) DEBUG 
+                    -PRINT(.\Listings\Key.lst) TABS(2) OBJECT(.\Objects\Key.obj) 
 
 stmt  level    source
 

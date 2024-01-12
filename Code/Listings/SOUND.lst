@@ -1,13 +1,14 @@
-C251 COMPILER V5.60.0,  SOUND                                                              12/01/24  12:01:59  PAGE 1   
+C251 COMPILER V5.60.0,  SOUND                                                              12/01/24  14:13:42  PAGE 1   
 
 
 C251 COMPILER V5.60.0, COMPILATION OF MODULE SOUND
 OBJECT MODULE PLACED IN .\Objects\SOUND.obj
-COMPILER INVOKED BY: D:\WorkSoftware\Keil_C251\C251\BIN\C251.EXE Code\SOUND.c INTR2 BROWSE INCDIR(.\Code) DEBUG PRINT(.\
-                    -Listings\SOUND.lst) TABS(2) OBJECT(.\Objects\SOUND.obj) 
+COMPILER INVOKED BY: D:\Software\WorkSoftware\Keil5\C251\C251\BIN\C251.EXE Code\SOUND.c INTR2 BROWSE INCDIR(.\Code) DEBU
+                    -G PRINT(.\Listings\SOUND.lst) TABS(2) OBJECT(.\Objects\SOUND.obj) 
 
 stmt  level    source
 
+    1          #include "SOUND.h"
 *** WARNING C38 IN LINE 1 OF Code\SOUND.c: empty translation unit
 
 

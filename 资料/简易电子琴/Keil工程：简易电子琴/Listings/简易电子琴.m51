@@ -1,0 +1,165 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/12/2024  14:38:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\SOFTWARE\WORKSOFTWARE\KEIL5\C51\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\¼òÒ×µç×ÓÇÙ PRINT (.\Listings\¼òÒ×µç×
+>> ÓÇÙ.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  D:\SOFTWARE\WORKSOFTWARE\KEIL5\C51\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\¼òÒ×µç×ÓÇÙ (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?MAIN
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     0066H     UNIT         ?PR?KEYSCAN?MAIN
+            CODE    0866H     003DH     UNIT         ?PR?TMR0ISR?MAIN
+            CODE    08A3H     0020H     UNIT         ?PR?_DELAYMS?MAIN
+            CODE    08C3H     0010H     UNIT         ?PR?TIMER0INIT?MAIN
+            CODE    08D3H     0010H     UNIT         ?CO?MAIN
+            CODE    08E3H     000CH     UNIT         ?C_C51STARTUP
+            CODE    08EFH     0008H     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\¼òÒ×µç×ÓÇÙ (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?TMR0ISR?MAIN
+  +--> ?CO?MAIN
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?TIMER0INIT?MAIN
+  +--> ?PR?KEYSCAN?MAIN
+
+?PR?KEYSCAN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/12/2024  14:38:18  PAGE 2
+
+
+  +--> ?PR?_DELAYMS?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\¼òÒ×µç×ÓÇÙ (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  C:08EFH         PUBLIC        main
+  C:0866H         PUBLIC        Tmr0isr
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  C:08C3H         PUBLIC        Timer0Init
+  D:008CH         PUBLIC        TH0
+  B:0090H.0       PUBLIC        Speaker
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  D:0008H         PUBLIC        yd
+  C:08D3H         PUBLIC        yindiao
+  C:0800H         PUBLIC        keyscan
+  C:08A3H         PUBLIC        _delayms
+  -------         PROC          MAIN
+  C:08EFH         LINE#         19
+  C:08EFH         LINE#         20
+  C:08EFH         LINE#         21
+  C:08F2H         LINE#         22
+  C:08F2H         LINE#         23
+  C:08F2H         LINE#         24
+  C:08F5H         LINE#         25
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAYMS
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        msi
+  D:0002H         SYMBOL        msj
+  -------         ENDDO         
+  C:08A3H         LINE#         28
+  C:08A3H         LINE#         29
+  C:08A3H         LINE#         31
+  C:08ADH         LINE#         32
+  C:08C2H         LINE#         33
+  -------         ENDPROC       _DELAYMS
+  -------         PROC          TIMER0INIT
+  C:08C3H         LINE#         35
+  C:08C3H         LINE#         36
+  C:08C3H         LINE#         37
+  C:08C6H         LINE#         38
+  C:08C9H         LINE#         39
+  C:08CCH         LINE#         40
+  C:08CEH         LINE#         41
+  C:08D0H         LINE#         42
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/12/2024  14:38:18  PAGE 3
+
+
+  C:08D2H         LINE#         43
+  -------         ENDPROC       TIMER0INIT
+  -------         PROC          KEYSCAN
+  C:0800H         LINE#         44
+  C:0800H         LINE#         45
+  C:0800H         LINE#         46
+  C:0805H         LINE#         47
+  C:0805H         LINE#         48
+  C:080CH         LINE#         49
+  C:0811H         LINE#         50
+  C:0811H         LINE#         51
+  C:082FH         LINE#         52
+  C:082FH         LINE#         53
+  C:0836H         LINE#         54
+  C:083DH         LINE#         55
+  C:0844H         LINE#         56
+  C:084BH         LINE#         57
+  C:0852H         LINE#         58
+  C:0859H         LINE#         59
+  C:085EH         LINE#         60
+  C:085EH         LINE#         61
+  C:085EH         LINE#         62
+  C:085EH         LINE#         63
+  C:0865H         LINE#         64
+  C:0865H         LINE#         65
+  -------         ENDPROC       KEYSCAN
+  -------         PROC          TMR0ISR
+  C:0866H         LINE#         67
+  C:0877H         LINE#         69
+  C:088EH         LINE#         70
+  C:0892H         LINE#         71
+  C:0894H         LINE#         72
+  -------         ENDPROC       TMR0ISR
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00EEH BYTE (11%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=253
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

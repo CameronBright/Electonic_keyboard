@@ -1,7 +1,8 @@
 ".\Objects\main.obj",
 ".\Objects\Key.obj",
 ".\Objects\GPIO.obj",
-".\Objects\SOUND.obj" 
+".\Objects\SOUND.obj",
+".\Objects\Timer.obj" 
 TO ".\Objects\EKey" 
 PRINT(".\Listings\EKey.map") CASE 
 CLASSES (EDATA (0x0-0xFFF), 

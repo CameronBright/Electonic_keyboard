@@ -1,10 +1,10 @@
-C251 COMPILER V5.60.0,  GPIO                                                               12/01/24  12:01:59  PAGE 1   
+C251 COMPILER V5.60.0,  GPIO                                                               12/01/24  14:40:37  PAGE 1   
 
 
 C251 COMPILER V5.60.0, COMPILATION OF MODULE GPIO
 OBJECT MODULE PLACED IN .\Objects\GPIO.obj
-COMPILER INVOKED BY: D:\WorkSoftware\Keil_C251\C251\BIN\C251.EXE Code\GPIO.c INTR2 BROWSE INCDIR(.\Code) DEBUG PRINT(.\L
-                    -istings\GPIO.lst) TABS(2) OBJECT(.\Objects\GPIO.obj) 
+COMPILER INVOKED BY: D:\Software\WorkSoftware\Keil5\C251\C251\BIN\C251.EXE Code\GPIO.c INTR2 BROWSE INCDIR(.\Code) DEBUG
+                    - PRINT(.\Listings\GPIO.lst) TABS(2) OBJECT(.\Objects\GPIO.obj) 
 
 stmt  level    source
 

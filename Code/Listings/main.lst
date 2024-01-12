@@ -1,49 +1,113 @@
-C251 COMPILER V5.60.0,  main                                                               12/01/24  12:45:15  PAGE 1   
+C251 COMPILER V5.60.0,  main                                                               12/01/24  14:51:53  PAGE 1   
 
 
 C251 COMPILER V5.60.0, COMPILATION OF MODULE main
 OBJECT MODULE PLACED IN .\Objects\main.obj
-COMPILER INVOKED BY: D:\WorkSoftware\Keil_C251\C251\BIN\C251.EXE Code\main.c INTR2 BROWSE INCDIR(.\Code) DEBUG PRINT(.\L
-                    -istings\main.lst) TABS(2) OBJECT(.\Objects\main.obj) 
+COMPILER INVOKED BY: D:\Software\WorkSoftware\Keil5\C251\C251\BIN\C251.EXE Code\main.c INTR2 BROWSE INCDIR(.\Code) DEBUG
+                    - PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj) 
 
 stmt  level    source
 
     1          #include "GPIO.h"
     2          #include "Key.h"
     3          #include "stdio.h"
-    4          
-    5          sbit LED=P3^7; 
-    6          sbit SPEAKER = P3^4; //扬声器
-    7          
-    8          unsigned int code Freqtab[] = {   //定时半周期的初始值
-    9               64021,64103,64260,64400,      //低音3 4 5 6
-   10               64524,64580,64684,64777,      //低音7,中音1 2 3
-   11               64820,64898,64968,65030,      //中音4 5 6 7
-   12               65058,65110,65157,65178};     //高音1 2 3 4
-   13          
-   14          unsigned int FreqTemp;
-   15          
-   16          void main()
-   17          {
-   18   1        GPIO_init();//GPIO初始化
-   19   1        LED = 0;
-   20   1        
-   21   1        while(1)
-   22   1        {
-   23   2          if(Key_Read() < 12)
-   24   2            LED = 0;
-   25   2          else if(Key_Read() >= 12 && Key_Read() < 15)
-   26   2            LED = 1;
-   27   2        }
-   28   1        
+    4          //#include "Timer.h"
+    5          
+    6          sbit LED=P3^7; 
+    7          sbit SPEAKER = P3^4; //扬声器
+    8          
+    9          void keyscan();
+   10          void Timer0_Init(void);   //19微秒@11.0592MHz
+   11          void Delay10ms();   //@11.0592MHz
+   12          
+   13          unsigned key_value;
+   14          
+   15                                       //0   1     2     3     4     5     6     7     8     9    10   11     12
+   16          unsigned int code yindiao[13]={0,63778,63873,63969,64054,64140,64215,64292,64360,64426,64489,64548,64603}
+             -;
+   17          unsigned char yd;                                 
+   18               
+   19          void main()
+   20          {
+   21   1        GPIO_init();//GPIO初始化
+   22   1        Timer0_Init(); //定时器初始化
+   23   1        
+   24   1        LED = 0;
+   25   1        while(1)
+   26   1        {
+   27   2          keyscan();
+   28   2        }
    29   1      }
+   30          
+   31          void keyscan()                            
+   32          {
+   33   1        key_value = Key_Read();
+   34   1        
+   35   1        if(key_value >= 0 && key_value <= 14)                         
+   36   1        {
+   37   2          Delay10ms();        //消抖                  
+   38   2          if(key_value >= 0 && key_value <= 14)                         
+   39   2          { 
+   40   3            switch (key_value)                          
+   41   3            {
+   42   4              case 0:yd = 1;TR0 = 1;break;    //key0
+   43   4              case 1:yd = 2;TR0 = 1;break;    //key1
+   44   4              case 2:yd = 3;TR0 = 1;break;    //key2
+   45   4              case 3:yd = 4;TR0 = 1;break;    //key3
+   46   4              case 4:yd = 5;TR0 = 1;break;    //key4  
+   47   4              case 5:yd = 6;TR0 = 1;break;    //key5
+   48   4              case 6:yd = 7;TR0 = 1;break;    //key6
+   49   4              case 7:yd = 8;TR0 = 1;break;    //key7
+   50   4              case 8:yd = 9;TR0 = 1;break;    //key8
+   51   4              case 9:yd = 10;TR0 = 1;break;   //key9
+   52   4              case 10:yd = 11;TR0 = 1;break;    //key10
+   53   4              case 11:yd = 12;TR0 = 1;break;    //key11 
+   54   4              default:break;
+   55   4            }
+   56   3          }
+   57   2          
+C251 COMPILER V5.60.0,  main                                                               12/01/24  14:51:53  PAGE 2   
+
+   58   2        }
+   59   1        if(key_value == 15) TR0 = 0;  //停止计时
+   60   1                    
+   61   1      }
+   62          
+   63          void T0_INT(void) interrupt 1
+   64          {
+   65   1          TH0 = yindiao[yd]/256;                    //éè???¨ê±3?ê??μ
+   66   1          TL0 = yindiao[yd]%256;                    //éè???¨ê±3?ê??μ
+   67   1          SPEAKER = ~SPEAKER;                     //??éù?÷μ???·-×a
+   68   1      }
+   69          
+   70          void Timer0_Init(void)    //19微秒@11.0592MHz
+   71          {
+   72   1        TMOD |= 0x01;                           //éè???¨ê±?÷?￡ê?
+   73   1        TL0 = 0x8B;                             //éè???¨ê±3?ê??μ
+   74   1        TH0 = 0xF8;                             //éè???¨ê±3?ê??μ
+   75   1        TR0 = 0;                                //?¨ê±?÷0?aê???ê±
+   76   1        ET0 = 1;                                //?¨ê±?÷0?D??ê1?ü
+   77   1        EA = 1;                                 //×ü?D??ê1?ü
+   78   1      }
+   79          
+   80          void Delay10ms()    //@11.0592MHz
+   81          {
+   82   1        unsigned char data i, j;
+   83   1      
+   84   1        i = 108;
+   85   1        j = 145;
+   86   1        do
+   87   1        {
+   88   2          while (--j);
+   89   2        } while (--i);
+   90   1      }
 
 
 Module Information          Static   Overlayable
 ------------------------------------------------
-  code size            =        69     ------
+  code size            =       320     ------
   ecode size           =    ------     ------
-  data size            =         2     ------
+  data size            =         3     ------
   idata size           =    ------     ------
   pdata size           =    ------     ------
   xdata size           =    ------     ------
